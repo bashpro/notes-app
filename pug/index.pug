@@ -1,4 +1,5 @@
 doctype html
+include ./pug_includes/mixins.pug
 include ./pug_includes/notes.pug
 html
   head
@@ -7,6 +8,38 @@ html
     link(rel="stylesheet" href="style.css")
   body
 
-  script.
-    console.log("hello there") 
+    .holder
+      .input
+        input#inVal
+      .cards
+        each i in cardList 
+          +cards(i)
 
+    script.
+      console.log("hello there") 
+      
+      $("#inVal").on('input', function() {
+        //input value
+        var val = $(this).val()
+        
+        //each card function
+        $(".card").each(function(){
+           
+          //if this card has h3 or p that contains the val
+          if($(this).find("h3, p").is(":contains("+val+")")){
+            //true: show the card
+            $(this).css("display", "block")
+          }else{
+            //false: remove the card
+            $(this).css("display", "none")
+          }
+        })
+        
+      });
+
+      //if input has nothing
+      if( $("#inVal").val().length == 0){
+        //true: show all cards
+        $(".card").css("display", "block")
+      }
+   

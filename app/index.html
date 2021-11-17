@@ -5,6 +5,155 @@
     <script src="../app/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body></body>
-  <script>console.log("hello there") </script>
+  <body>
+    <div class="holder">
+      <div class="input">
+        <input id="inVal">
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>parallel</h3>
+          <p>is an update running with both of old and new</p>
+        </div>
+        <div class="card">
+          <h3>customer sign off</h3>
+          <p>can either be sprint review or at the end of the project</p>
+        </div>
+        <div class="card">
+          <h3>epic</h3>
+          <p>An Epic is a high-level body of work bring groups of related stories together.</p>
+        </div>
+        <div class="card">
+          <h3>scrum and v-model</h3>
+          <p>don’t include is change of scope of a project.</p>
+        </div>
+        <div class="card">
+          <h3>v-model</h3>
+          <p>As for the v-model it follows a structure that both scrum and spiral don’t align with as its an a stage by stage rather than being iterative process where things can change</p>
+        </div>
+        <div class="card">
+          <h3>non-functional</h3>
+          <p>usability: having all functions available when wanting to test the app.
+
+        reliability: having all the details in place mainly looking at how it functions and if it works.
+
+        recoverability: being able to replace components with minimum work effort.
+
+        maintainability: having a way to keep a simple format that gives access to simple fixes.
+
+        serviceability: easy way to repair and maintain with little effort of a service
+
+        Performance:  making sure systems work on a set of criteria as standards.
+
+        scalability:  appropriately handling increasing and decreasing workloads.
+
+        capacity:  making sure that we can deliver enough functionality to the end users.
+
+        availability:  making sure everything functions and is on at all times.
+
+        security:  making sure that security can be maintained and can prevent what it requires to protect.</p>
+        </div>
+        <div class="card">
+          <h3>sprint planning meeting</h3>
+          <p>everyone is involved</p>
+        </div>
+        <div class="card">
+          <h3>sprint review</h3>
+          <p>scrum master should not be there</p>
+        </div>
+        <div class="card">
+          <h3>spiral</h3>
+          <p>project being large but risky, risk at early stage, many constraints</p>
+        </div>
+        <div class="card">
+          <h3>spiral method</h3>
+          <p>takes upon risks and is mainly used in long projects, has a review at the end of a circle</p>
+        </div>
+        <div class="card">
+          <h3>scrum focus</h3>
+          <p>making sure there are no risks more for smaller projects involving iterative process</p>
+        </div>
+        <div class="card">
+          <h3>scrum risk?</h3>
+          <p>risk management is not mainly associated with scrum</p>
+        </div>
+        <div class="card">
+          <h3>scrum usecase</h3>
+          <p>is used for iteration with less risk and spiral having a lot of risks</p>
+        </div>
+        <div class="card">
+          <h3>scrum backlog</h3>
+          <p>has a backlog and review at the end of the sprint.</p>
+        </div>
+        <div class="card">
+          <h3>scrum team</h3>
+          <p>is responsible for delivering results on time with hgh quality</p>
+        </div>
+        <div class="card">
+          <h3>scrum master</h3>
+          <p>keeps the team focused on the goal.</p>
+        </div>
+        <div class="card">
+          <h3>scrum planning</h3>
+          <p>just making sure that planning is essential so that it doesn't cause a problem because you're prepared.</p>
+        </div>
+        <div class="card">
+          <h3>scrum values</h3>
+          <p>courage, focus, commitment, respect and openness</p>
+        </div>
+        <div class="card">
+          <h3>not a feature of scrum</h3>
+          <p>pair programming not undertaken in scrum</p>
+        </div>
+        <div class="card">
+          <h3>scrum, burn down chart</h3>
+          <p>chart of a backlog work to finish, it shows progress, over time a plot line will indicate work remaining. this is then used in sprint backlogs to make sure tasks are finished in the remaining time</p>
+        </div>
+        <div class="card">
+          <h3>scrum, burn up chart</h3>
+          <p>Chart that shows all works that have been completed, it is all assessed in multiple ways such as user story points or task hours.</p>
+        </div>
+        <div class="card">
+          <h3>daily scrum</h3>
+          <p>a meeting conducting on planning each task and reviewing what.</p>
+        </div>
+        <div class="card">
+          <h3>scrum, emergence</h3>
+          <p>process of new context or facts that provide an understanding of any visible information.</p>
+        </div>
+        <div class="card">
+          <h3>scrum board</h3>
+          <p>is a visualisation of all the tasks and information provided.</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      console.log("hello there") 
+      
+      $("#inVal").on('input', function() {
+        //input value
+        var val = $(this).val()
+        
+        //each card function
+        $(".card").each(function(){
+           
+          //if this card has h3 or p that contains the val
+          if($(this).find("h3, p").is(":contains("+val+")")){
+            //true: show the card
+            $(this).css("display", "block")
+          }else{
+            //false: remove the card
+            $(this).css("display", "none")
+          }
+        })
+        
+      });
+      
+      //if input has nothing
+      if( $("#inVal").val().length == 0){
+        //true: show all cards
+        $(".card").css("display", "block")
+      }
+    </script>
+  </body>
 </html>

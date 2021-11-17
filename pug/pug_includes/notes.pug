@@ -1,0 +1,11 @@
+
+- 
+  var list = []
+
+include ./notetypes/oneoffs.pug
+include ./notetypes/sprint.pug
+include ./notetypes/spiral.pug
+include ./notetypes/scrum.pug
+
+-
+  var cardList = list.concat(oneoffs, sprint, spiral, scrum)
