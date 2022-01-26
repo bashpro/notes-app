@@ -1,12 +1,23 @@
+:root {
+  --primary-colour: #b7b7b7;
+  --secondary-colour: #dfdfdf;
+  --timing: 0.2s all ease;
+}
+
 html {
   overflow-x: hidden;
   font-family: arial;
   margin: 0px;
 }
-html body, html p, html a {
+html body, html p, html a, html h3 {
   margin: 0px;
   text-decoration: none;
   color: black;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 body::-webkit-scrollbar-track {
@@ -28,6 +39,78 @@ body::-webkit-scrollbar-thumb {
 }
 
 .holder {
-  width: 100vw;
-  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.margin {
+  margin: 25px;
+}
+
+.input {
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#inVal {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0px;
+  border-width: 0px;
+  border-bottom: 1px solid var(--primary-colour);
+}
+#inVal:focus-visible {
+  outline: 0px solid var(--primary-colour);
+}
+
+.cards {
+  margin-top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 350px;
+}
+
+.card {
+  margin: 10px;
+  padding: 15px;
+  width: 350px;
+  height: 150px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-transition: var(--timing);
+  transition: var(--timing);
+  border: solid 1px var(--secondary-colour);
+  border-radius: 10px;
+}
+.card.active {
+  height: 500px;
+}
+.card:hover {
+  border: solid 1px var(--primary-colour);
+}
+.card h3 {
+  margin-bottom: 5px;
+}
+.card br {
+  display: block;
+  margin: 10px 0px;
+  content: " ";
 }

@@ -6,17 +6,44 @@ html
     title My App
     script(src="../app/jquery-3.6.0.js")
     link(rel="stylesheet" href="style.css")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
   body
 
     .holder
-      .input
-        input#inVal
-      .cards
+      .input.margin
+        input#inVal(autocomplete="off" placeholder="looking for something")
+      .cards.margin
         each i in cardList 
           +cards(i)
 
     script.
-      console.log("hello there") 
+      
+         
+      for(let j = 0; j < $(".card").length; j++ ){
+        
+        var splittingLine = document.querySelectorAll(".card")[j].querySelector("p").innerText.split("|")
+
+        for(let i = 0; i < splittingLine.length; i++){
+          splittingLine[i] = splittingLine[i] + "<br/>"
+        }
+
+        splittingLine.join("")
+
+        document.querySelectorAll(".card")[j].querySelector("p").innerHTML = splittingLine.join("")
+
+
+
+      }
+     
+      
+      $(".card").on('click', function(){
+        if($(this).find("p").height() > 300){
+          $(this).toggleClass("active")
+    
+        }
+        
+      })
+
       
       $("#inVal").on('input', function() {
         //input value

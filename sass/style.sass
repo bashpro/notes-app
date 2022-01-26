@@ -1,12 +1,23 @@
+$primary-colour: #b7b7b7
+$timing: 0.2s all ease
+$secondary-colour: #dfdfdf
+
+:root
+  --primary-colour: #{$primary-colour}
+  --secondary-colour: #{$secondary-colour}
+  --timing: #{$timing}
+
 // main css functions
 html
   overflow-x: hidden
   font-family: arial
   margin: 0px
-  body, p, a
+  body, p, a, h3
     margin: 0px
     text-decoration: none
     color: black
+    cursor: default
+    user-select: none
 
 body::-webkit-scrollbar-track
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
@@ -25,5 +36,51 @@ body::-webkit-scrollbar-thumb
 // build css
 
 .holder
-  width: 100vw
-  height: 100vh
+  display: flex 
+  flex-direction: column
+
+.margin
+  margin: 25px
+
+.input
+  height: 30px
+  display: flex
+
+#inVal
+  flex: 1
+  padding: 0px
+  border-width: 0px
+  border-bottom: 1px solid var(--primary-colour)
+
+  &:focus-visible
+    outline: 0px solid var(--primary-colour)   
+  
+
+.cards
+  margin-top: 0px
+  display: flex
+  flex-wrap: wrap
+  flex-direction: row
+  justify-content: center
+  min-width: 350px
+  
+.card
+  margin: 10px
+  padding: 15px
+  width: 350px
+  height: 150px
+  text-overflow: ellipsis
+  overflow: hidden
+  transition: var(--timing)
+  border: solid 1px var(--secondary-colour)
+  border-radius: 10px
+  &.active
+    height: 500px
+  &:hover
+    border: solid 1px var(--primary-colour)
+  h3
+    margin-bottom: 5px
+  br
+    display: block
+    margin: 10px 0px
+    content: " "

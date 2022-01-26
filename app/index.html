@@ -4,13 +4,14 @@
     <title>My App</title>
     <script src="../app/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <div class="holder">
-      <div class="input">
-        <input id="inVal">
+      <div class="input margin">
+        <input id="inVal" autocomplete="off" placeholder="looking for something">
       </div>
-      <div class="cards">
+      <div class="cards margin">
         <div class="card">
           <h3>parallel</h3>
           <p>is an update running with both of old and new</p>
@@ -33,25 +34,7 @@
         </div>
         <div class="card">
           <h3>non-functional</h3>
-          <p>usability: having all functions available when wanting to test the app.
-
-        reliability: having all the details in place mainly looking at how it functions and if it works.
-
-        recoverability: being able to replace components with minimum work effort.
-
-        maintainability: having a way to keep a simple format that gives access to simple fixes.
-
-        serviceability: easy way to repair and maintain with little effort of a service
-
-        Performance:  making sure systems work on a set of criteria as standards.
-
-        scalability:  appropriately handling increasing and decreasing workloads.
-
-        capacity:  making sure that we can deliver enough functionality to the end users.
-
-        availability:  making sure everything functions and is on at all times.
-
-        security:  making sure that security can be maintained and can prevent what it requires to protect.</p>
+          <p>usability: having all functions available when wanting to test the app.|reliability: having all the details in place mainly looking at how it functions and if it works.|recoverability: being able to replace components with minimum work effort.|maintainability: having a way to keep a simple format that gives access to simple fixes.|serviceability: easy way to repair and maintain with little effort of a service|Performance:  making sure systems work on a set of criteria as standards.|scalability:  appropriately handling increasing and decreasing workloads.|capacity:  making sure that we can deliver enough functionality to the end users.|availability:  making sure everything functions and is on at all times.|security:  making sure that security can be maintained and can prevent what it requires to protect.</p>
         </div>
         <div class="card">
           <h3>sprint planning meeting</h3>
@@ -59,7 +42,7 @@
         </div>
         <div class="card">
           <h3>sprint review</h3>
-          <p>scrum master should not be there</p>
+          <p>scrum master is not always needed. | Making sure the customer is there and involved with the process</p>
         </div>
         <div class="card">
           <h3>spiral</h3>
@@ -91,7 +74,7 @@
         </div>
         <div class="card">
           <h3>scrum master</h3>
-          <p>keeps the team focused on the goal.</p>
+          <p>keeps the team focused on the goal. | ensures the team is following agile princeples</p>
         </div>
         <div class="card">
           <h3>scrum planning</h3>
@@ -107,7 +90,7 @@
         </div>
         <div class="card">
           <h3>scrum, burn down chart</h3>
-          <p>chart of a backlog work to finish, it shows progress, over time a plot line will indicate work remaining. this is then used in sprint backlogs to make sure tasks are finished in the remaining time</p>
+          <p>chart of a backlog work to finish, it shows progress, over time a plot line will indicate work remaining. |this is then used in sprint backlogs to make sure tasks are finished in the remaining time</p>
         </div>
         <div class="card">
           <h3>scrum, burn up chart</h3>
@@ -128,7 +111,31 @@
       </div>
     </div>
     <script>
-      console.log("hello there") 
+      for(let j = 0; j < $(".card").length; j++ ){
+        
+        var splittingLine = document.querySelectorAll(".card")[j].querySelector("p").innerText.split("|")
+      
+        for(let i = 0; i < splittingLine.length; i++){
+          splittingLine[i] = splittingLine[i] + "<br/>"
+        }
+      
+        splittingLine.join("")
+      
+        document.querySelectorAll(".card")[j].querySelector("p").innerHTML = splittingLine.join("")
+      
+      
+      
+      }
+      
+      
+      $(".card").on('click', function(){
+        if($(this).find("p").height() > 300){
+          $(this).toggleClass("active")
+      
+        }
+        
+      })
+      
       
       $("#inVal").on('input', function() {
         //input value
