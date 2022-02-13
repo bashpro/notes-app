@@ -37,6 +37,22 @@
           <p>usability: having all functions available when wanting to test the app.|reliability: having all the details in place mainly looking at how it functions and if it works.|recoverability: being able to replace components with minimum work effort.|maintainability: having a way to keep a simple format that gives access to simple fixes.|serviceability: easy way to repair and maintain with little effort of a service|Performance:  making sure systems work on a set of criteria as standards.|scalability:  appropriately handling increasing and decreasing workloads.|capacity:  making sure that we can deliver enough functionality to the end users.|availability:  making sure everything functions and is on at all times.|security:  making sure that security can be maintained and can prevent what it requires to protect.</p>
         </div>
         <div class="card">
+          <h3>class diagram</h3>
+          <p>A class diagram holds the information like the following example: | class name| +age: Int| +gender: String| ____________| functions| + role() </p>
+        </div>
+        <div class="card">
+          <h3>class diagram usecase</h3>
+          <p>to structure data showing the systems classes, attributes, methods and relationships among other objects</p>
+        </div>
+        <div class="card">
+          <h3>class diagram notation</h3>
+          <p>class name: | name of the class | class attributes:| these show the attributes the class have| class operations:| these hold the functions and methods the class holds</p>
+        </div>
+        <div class="card">
+          <h3>class diagram relationship types</h3>
+          <p>inheritence:| superclass holds the data, for the following example lets use human.| the class holds the following as attributes:| +brain: String| +bones: String| We then want to identify certain people with the superclass, these are called subclasses and take the attributes when they are connected to the superclass.</p>
+        </div>
+        <div class="card">
           <h3>sprint planning meeting</h3>
           <p>everyone is involved</p>
         </div>
@@ -129,11 +145,22 @@
       
       
       $(".card").on('click', function(){
-        if($(this).find("p").height() > 300){
-          $(this).toggleClass("active")
       
+      
+        if($(this).find("p").height() > 150){
+          var height = $(this).find("p").height(),
+              addOn = height + 30
+          $(this).css('height', addOn)
+      
+          $(this).toggleClass('active')
+          
         }
-        
+      
+        if(!$(this).hasClass('active')){
+          
+          $(this).removeAttr('style')
+        }
+      
       })
       
       

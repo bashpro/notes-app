@@ -37,11 +37,22 @@ html
      
       
       $(".card").on('click', function(){
-        if($(this).find("p").height() > 300){
-          $(this).toggleClass("active")
-    
+
+
+        if($(this).find("p").height() > 150){
+          var height = $(this).find("p").height(),
+              addOn = height + 30
+          $(this).css('height', addOn)
+
+          $(this).toggleClass('active')
+          
         }
-        
+
+        if(!$(this).hasClass('active')){
+          
+          $(this).removeAttr('style')
+        }
+
       })
 
       
