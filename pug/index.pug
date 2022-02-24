@@ -4,8 +4,10 @@ include ./pug_includes/notes.pug
 html
   head
     title My App
-    script(src="../app/jquery-3.6.0.js")
-    link(rel="stylesheet" href="style.css")
+    //script(src="../app/jquery-3.6.0.js")
+    include ./pug_includes/jquery.pug
+    //link(rel="stylesheet" href="style.css")
+    include ./pug_includes/css.pug
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
   body
 
@@ -35,11 +37,11 @@ html
 
       }
      
-      
+       
       $(".card").on('click', function(){
 
 
-        if($(this).find("p").height() > 150){
+        if($(this).find("p").height() > 130){
           var height = $(this).find("p").height(),
               addOn = height + 30
           $(this).css('height', addOn)
